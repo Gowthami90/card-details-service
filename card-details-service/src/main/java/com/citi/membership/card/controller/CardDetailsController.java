@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.citi.membership.card.model.CardDetails;
 import com.citi.membership.card.model.CardDetailsRequest;
 import com.citi.membership.card.model.CardDetailsResponse;
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping(value="/v1")
 public class CardDetailsController {
@@ -30,9 +32,6 @@ public class CardDetailsController {
 		//handle the exception if any comes from the service class
 		//prepare the controller response
 		return null;
-
-		
-		
 	}
 	
 	@RequestMapping(value="/carddeatils/{cardNum}",method=RequestMethod.GET,produces="application/json")
